@@ -1,50 +1,159 @@
-# Welcome to your Expo app 👋
+# 📸 Product Photography - Generate App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## ✨ Features
 
-## Get started
+- 🎨 **Beautiful Dark UI** - Modern, polished interface with smooth animations
+- 🔍 **Search Functionality** - Search for photography templates by keywords
+- 💬 **AI Prompt Input** - Describe scenes for AI-generated product photos
+- 🖼️ **Template Gallery** - Browse curated photography templates in grid layout
+- ✅ **Interactive Selection** - Select templates with visual feedback (green checkmark)
+- 📱 **Fully Responsive** - Adapts to different screen sizes
+- 🎯 **Tab Navigation** - Easy navigation between different categories
+- 📜 **Smooth Scrolling** - Optimized scrolling performance with FlatList
 
-1. Install dependencies
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Expo CLI
+- iOS Simulator (Mac) or Android Emulator
+
+### Installation
+
+1. **Clone or create new Expo project**
+
+   ```bash
+   npx create-expo-app PhotographyApp
+   cd PhotographyApp
+   ```
+
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Install NativeWind and Tailwind CSS**
+
+   ```bash
+   npm install nativewind
+   npm install --save-dev tailwindcss@3.3.2
+   ```
+
+4. **Install Expo Vector Icons** (usually pre-installed)
+
+   ```bash
+   npx expo install @expo/vector-icons
+   ```
+
+### Configuration
+
+5. **Create `tailwind.config.js` in root directory**
+
+   ```javascript
+   /** @type {import('tailwindcss').Config} */
+   module.exports = {
+     content: [
+       "./App.{js,jsx,ts,tsx}",
+       "./src/**/*.{js,jsx,ts,tsx}"
+     ],
+     theme: {
+       extend: {},
+     },
+     plugins: [],
+   }
+   ```
+
+6. **Update `babel.config.js`**
+
+   ```javascript
+   module.exports = function(api) {
+     api.cache(true);
+     return {
+       presets: ['babel-preset-expo'],
+       plugins: ["nativewind/babel"],
+     };
+   };
+   ```
+
+7. **Create `app.d.ts` for TypeScript support**
+
+   ```typescript
+   /// <reference types="nativewind/types" />
+   ```
+
+8. **Replace `App.tsx` with the provided code**
+
+   Copy the complete App.tsx code from the artifact.
+
+### Running the App
+
+9. **Start the development server**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+10. **Run on your preferred platform**
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+    In the terminal output, press:
+    - **`i`** - Open iOS Simulator
+    - **`a`** - Open Android Emulator
+    - **`w`** - Open in web browser
+    - Scan QR code with Expo Go app on your physical device
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📁 Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+PhotographyApp/
+├── App.tsx                 # Main application component
+├── app.d.ts               # TypeScript definitions for NativeWind
+├── babel.config.js        # Babel configuration with NativeWind plugin
+├── tailwind.config.js     # Tailwind CSS configuration
+├── package.json           # Dependencies and scripts
+├── tsconfig.json          # TypeScript configuration
+└── assets/                # Images and static assets
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🎯 Key Components
 
-## Learn more
+### Header
+- Back navigation button
+- Page title
+- User avatar placeholder
 
-To learn more about developing your project with Expo, look at the following resources:
+### Tab Navigation
+- 5 interactive tabs: Home, Videos, Photography, In action, Commercial
+- Active tab indicator with green accent color
+- Horizontal scrollable on smaller screens
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Search Bar
+- Icon-based search input
+- Placeholder text for guidance
+- Real-time text input handling
 
-## Join the community
+### Prompt Input Box
+- Multi-line text area for AI prompts
+- Generate button with sparkles icon
+- Green accent styling for CTAs
 
-Join our community of developers creating universal apps.
+### Template Grids (FlatList)
+- **Suggested Templates** - 6 photography templates
+- **Monochrome Section** - 6 monochrome templates
+- 3-column responsive grid layout
+- Selection state with green checkmark overlay
+- Smooth image loading from API
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🛠️ Technical Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **React Native** | Core mobile framework |
+| **TypeScript** | Type-safe development |
+| **Expo** | Development platform & tooling |
+| **NativeWind** | Tailwind CSS for React Native |
+| **@expo/vector-icons** | Icon library (Ionicons) |
+| **FlatList** | Optimized list rendering |
+| **Picsum Photos API** | Mock image data |
